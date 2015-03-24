@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/new/DigiElegidos">
+        <file>Digimon/Cody.png</file>
+        <file>Digimon/Davis.png</file>
+        <file>Digimon/Kari.png</file>
+        <file>Digimon/Ken.png</file>
+        <file>Digimon/TdotKdot.png</file>
+        <file>Digimon/Yolei.png</file>
+    </qresource>
+    <qresource prefix="/new/Digimons">
+        <file>Digimon/Armadillomon.png</file>
+        <file>Digimon/Gatomon.png</file>
+        <file>Digimon/Hawkmon.png</file>
+        <file>Digimon/Patamon.png</file>
+        <file>Digimon/Veemon.png</file>
+        <file>Digimon/Wormmon.png</file>
+    </qresource>
+    <qresource prefix="/new/Sprites">
+        <file>Digimon/Background.png</file>
+    </qresource>
+</RCC>
