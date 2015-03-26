@@ -103,12 +103,20 @@ void MainWindow::CambiarTurno()const {
         ui->Player1Skip->setEnabled(false);
         ui->Player1Withdraw->setEnabled(false);
         ui->Player2Attack->setEnabled(true);
-        ui->Player2Cambiar->setEnabled(true);
+        if (DigiActivoPlayer2 < 2) {
+            ui->Player2Cambiar->setEnabled(true);
+        } else {
+            ui->Player2Cambiar->setEnabled(false);
+        }
         ui->Player2Skip->setEnabled(true);
         ui->Player2Withdraw->setEnabled(true);
     } else if (!ui->Player1Attack->isEnabled() && ui->Player2Attack->isEnabled()) {
         ui->Player1Attack->setEnabled(true);
-        ui->Player1Cambiar->setEnabled(true);
+        if (DigiActivoPlayer1 < 2) {
+            ui->Player1Cambiar->setEnabled(true);
+        } else {
+            ui->Player1Cambiar->setEnabled(false);
+        }
         ui->Player1Skip->setEnabled(true);
         ui->Player1Withdraw->setEnabled(true);
         ui->Player2Attack->setEnabled(false);
