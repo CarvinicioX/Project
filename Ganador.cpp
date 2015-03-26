@@ -22,8 +22,3 @@ void Ganador::on_buttonBox_rejected()
     this->close();
     exit(0);
 }
-
-void Ganador::on_buttonBox_accepted()
-{
-
-}

@@ -28,7 +28,7 @@ int Vaccine::Defend(int Type)const {
 }
 
 int Vaccine::getType()const {
-    return 1;
+    return Type;
 }
 
 string Vaccine::toString()const {

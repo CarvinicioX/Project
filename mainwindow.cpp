@@ -22,11 +22,10 @@ MainWindow::MainWindow(QWidget *parent) :
     DigiActivoPlayer2 = 0;
     ui->setupUi(this);
     ui->Player2Attack->setEnabled(false);
-    ui->Player2Defend->setEnabled(false);
     ui->Player2Cambiar->setEnabled(false);
     ui->Player2Skip->setEnabled(false);
     ui->Player2Withdraw->setEnabled(false);
-    //Crea los DigiDestinesd(Player's)
+    //Crea los DigiDestineds(Player's)
     DigiDestinados.push_back(DigiDestined("Cody", ":/new/DigiElegidos/Digimon/Cody.png"));
     DigiDestinados.push_back(DigiDestined("Davis", ":/new/DigiElegidos/Digimon/Davis.png"));
     DigiDestinados.push_back(DigiDestined("Kari", ":/new/DigiElegidos/Digimon/Kari.png"));
@@ -47,68 +46,19 @@ MainWindow::MainWindow(QWidget *parent) :
     }
     //Se Crean los Digimons
     Digimon* NewDigi1 = new Vaccine("Armadillomon", 650, 190, ":/new/Digimons/Digimon/Armadillomon.png");
-    Digimon* NewDigi2 = new Vaccine("Gatomon", 750, 210, ":/new/Digimons/Digimon/Gatomon.png");
-    Digimon* NewDigi3 = new Data("Hawkmon", 600, 220, ":/new/Digimons/Digimon/Hawkmon.png");
+    Digimon* NewDigi2 = new Vaccine("Gatomon", 750, 190, ":/new/Digimons/Digimon/Gatomon.png");
+    Digimon* NewDigi3 = new Data("Hawkmon", 600, 180, ":/new/Digimons/Digimon/Hawkmon.png");
     Digimon* NewDigi4 = new Data("Patamon", 630, 170, ":/new/Digimons/Digimon/Patamon.png");
-    Digimon* NewDigi5 = new Virus("Veemon", 550, 200, ":/new/Digimons/Digimon/Veemon.png");
-    Digimon* NewDigi6 = new Virus("Wormmon", 550, 170, ":/new/Digimons/Digimon/Wormmon.png");
+    Digimon* NewDigi5 = new Virus("Veemon", 550, 160, ":/new/Digimons/Digimon/Veemon.png");
+    Digimon* NewDigi6 = new Virus("Wormmon", 550, 200, ":/new/Digimons/Digimon/Wormmon.png");
     //Se ingresan al vector
-    Vpet.push_back(NewDigi1);
-    Vpet.push_back(NewDigi2);
-    Vpet.push_back(NewDigi3);
-    Vpet.push_back(NewDigi4);
-    Vpet.push_back(NewDigi5);
-    Vpet.push_back(NewDigi6);
-    //Se reparten entre los jugadores aleatoriamente
-    for (int i = 0; i < Vpet.size(); i++) {
-        if (Player1->getName() == "Cody" && Vpet[i]->getName() == "Armadillomon") {
-            Vpet.erase(Vpet.begin() + i);
-            VpetPlayer1.push_back(Vpet[i]);
-        } else if (Player1->getName() == "Davis" && Vpet[i]->getName() == "Veemon") {
-            Vpet.erase(Vpet.begin() + i);
-            VpetPlayer1.push_back(Vpet[i]);
-        }else if (Player1->getName() == "Kari" && Vpet[i]->getName() == "Gatomon") {
-            Vpet.erase(Vpet.begin() + i);
-            VpetPlayer1.push_back(Vpet[i]);
-        }else if (Player1->getName() == "Ken" && Vpet[i]->getName() == "Wormmon") {
-            Vpet.erase(Vpet.begin() + i);
-            VpetPlayer1.push_back(Vpet[i]);
-        }else if (Player1->getName() == "T.K." && Vpet[i]->getName() == "Patamon") {
-            Vpet.erase(Vpet.begin() + i);
-            VpetPlayer1.push_back(Vpet[i]);
-        }else if (Player1->getName() == "Yolei" && Vpet[i]->getName() == "Hawkmon") {
-            Vpet.erase(Vpet.begin() + i);
-            VpetPlayer1.push_back(Vpet[i]);
-        }
-    }
-    for (int i = 0; i < Vpet.size(); i++) {
-        if (Player2->getName() == "Cody" && Vpet[i]->getName() == "Armadillomon") {
-            Vpet.erase(Vpet.begin() + i);
-            VpetPlayer2.push_back(Vpet[i]);
-        } else if (Player2->getName() == "Davis" && Vpet[i]->getName() == "Veemon") {
-            Vpet.erase(Vpet.begin() + i);
-            VpetPlayer2.push_back(Vpet[i]);
-        }else if (Player2->getName() == "Kari" && Vpet[i]->getName() == "Gatomon") {
-            Vpet.erase(Vpet.begin() + i);
-            VpetPlayer2.push_back(Vpet[i]);
-        }else if (Player2->getName() == "Ken" && Vpet[i]->getName() == "Wormmon") {
-            Vpet.erase(Vpet.begin() + i);
-            VpetPlayer2.push_back(Vpet[i]);
-        }else if (Player2->getName() == "T.K." && Vpet[i]->getName() == "Patamon") {
-            Vpet.erase(Vpet.begin() + i);
-            VpetPlayer2.push_back(Vpet[i]);
-        }else if (Player2->getName() == "Yolei" && Vpet[i]->getName() == "Hawkmon") {
-            Vpet.erase(Vpet.begin() + i);
-            VpetPlayer2.push_back(Vpet[i]);
-        }
-    }
-    for (int i = 0; i < 4; i++) {
-        if (rand() % 2 && VpetPlayer1.size() < 4) {
-            VpetPlayer1.push_back(Vpet[i]);
-        } else if (VpetPlayer2.size() < 4) {
-            VpetPlayer2.push_back(Vpet[i]);
-        }
-    }
+    VpetPlayer1.push_back(NewDigi1);
+    VpetPlayer2.push_back(NewDigi2);
+    VpetPlayer1.push_back(NewDigi3);
+    VpetPlayer2.push_back(NewDigi4);
+    VpetPlayer1.push_back(NewDigi5);
+    VpetPlayer2.push_back(NewDigi6);
+    //Se reparten entre los jugadores
     //Carga los jugadores al GUI
     ui->Player1Name->setText(Player1->getName());
     ui->Player2Name->setText(Player2->getName());
@@ -149,23 +99,19 @@ MainWindow::~MainWindow()
 void MainWindow::CambiarTurno()const {
     if (ui->Player1Attack->isEnabled() && !ui->Player2Attack->isEnabled()) {
         ui->Player1Attack->setEnabled(false);
-        ui->Player1Defend->setEnabled(false);
         ui->Player1Cambiar->setEnabled(false);
         ui->Player1Skip->setEnabled(false);
         ui->Player1Withdraw->setEnabled(false);
         ui->Player2Attack->setEnabled(true);
-        ui->Player2Defend->setEnabled(true);
         ui->Player2Cambiar->setEnabled(true);
         ui->Player2Skip->setEnabled(true);
         ui->Player2Withdraw->setEnabled(true);
     } else if (!ui->Player1Attack->isEnabled() && ui->Player2Attack->isEnabled()) {
         ui->Player1Attack->setEnabled(true);
-        ui->Player1Defend->setEnabled(true);
         ui->Player1Cambiar->setEnabled(true);
         ui->Player1Skip->setEnabled(true);
         ui->Player1Withdraw->setEnabled(true);
         ui->Player2Attack->setEnabled(false);
-        ui->Player2Defend->setEnabled(false);
         ui->Player2Cambiar->setEnabled(false);
         ui->Player2Skip->setEnabled(false);
         ui->Player2Withdraw->setEnabled(false);
@@ -198,19 +144,25 @@ void MainWindow::on_Player2Cambiar_clicked()
     if (ui->Player2Hp->value() <= VpetPlayer1[DigiActivoPlayer1]->getAttack()) {
         if (DigiActivoPlayer2 == 3) {
             Ganador Gano;
-            DigiActivoPlayer1 = 0;
-            DigiActivoPlayer2 = 0;//Agregar metodo para actualizar gui automaticamente
             Gano.exec();
+        } else {
+            QPixmap* pixi = new QPixmap(VpetPlayer2[DigiActivoPlayer2]->getImage());
+            ui->Player2Hp->setMaximum(VpetPlayer2[DigiActivoPlayer2]->getHp());
+            ui->Player2Hp->setValue(VpetPlayer2[DigiActivoPlayer2]->getHp());
+            ui->Player2NombreDigimon->setText(VpetPlayer2[DigiActivoPlayer2]->getName());
+            pixi = new QPixmap(VpetPlayer2[DigiActivoPlayer2]->getImage());
+            ui->Player2Digimon->setPixmap(*pixi);
+            delete pixi;
         }
+    } else {
+        QPixmap* pixi = new QPixmap(VpetPlayer2[DigiActivoPlayer2]->getImage());
+        ui->Player2Hp->setMaximum(VpetPlayer2[DigiActivoPlayer2]->getHp());
+        ui->Player2Hp->setValue(VpetPlayer2[DigiActivoPlayer2]->getHp());
+        ui->Player2NombreDigimon->setText(VpetPlayer2[DigiActivoPlayer2]->getName());
+        pixi = new QPixmap(VpetPlayer2[DigiActivoPlayer2]->getImage());
+        ui->Player2Digimon->setPixmap(*pixi);
+        delete pixi;
     }
-    cout << VpetPlayer2[DigiActivoPlayer2]->toString() << endl;
-    QPixmap* pixi = new QPixmap(VpetPlayer2[DigiActivoPlayer2]->getImage());
-    ui->Player2Hp->setMaximum(VpetPlayer2[DigiActivoPlayer2]->getHp());
-    ui->Player2Hp->setValue(VpetPlayer2[DigiActivoPlayer2]->getHp());
-    ui->Player2NombreDigimon->setText(VpetPlayer2[DigiActivoPlayer2]->getName());
-    pixi = new QPixmap(VpetPlayer2[DigiActivoPlayer2]->getImage());
-    ui->Player2Digimon->setPixmap(*pixi);
-    delete pixi;
 }
 
 void MainWindow::on_Player2Attack_clicked()
@@ -240,16 +192,44 @@ void MainWindow::on_Player1Cambiar_clicked()
         if (DigiActivoPlayer1 == 3) {
             Ganador Gano;
             Gano.exec();
-            DigiActivoPlayer1 = Gano.getNumber();
-            DigiActivoPlayer2 = Gano.getNumber();
+        } else {
+            QPixmap* pixi = new QPixmap(VpetPlayer1[DigiActivoPlayer1]->getImage());
+            ui->Player1Hp->setMaximum(VpetPlayer1[DigiActivoPlayer1]->getHp());
+            ui->Player1Hp->setValue(VpetPlayer1[DigiActivoPlayer1]->getHp());
+            ui->Player1NombreDigimon->setText(VpetPlayer1[DigiActivoPlayer1]->getName());
+            pixi = new QPixmap(VpetPlayer1[DigiActivoPlayer1]->getImage());
+            ui->Player1Digimon->setPixmap(*pixi);
+            delete pixi;
         }
+    } else {
+        QPixmap* pixi = new QPixmap(VpetPlayer1[DigiActivoPlayer1]->getImage());
+        ui->Player1Hp->setMaximum(VpetPlayer1[DigiActivoPlayer1]->getHp());
+        ui->Player1Hp->setValue(VpetPlayer1[DigiActivoPlayer1]->getHp());
+        ui->Player1NombreDigimon->setText(VpetPlayer1[DigiActivoPlayer1]->getName());
+        pixi = new QPixmap(VpetPlayer1[DigiActivoPlayer1]->getImage());
+        ui->Player1Digimon->setPixmap(*pixi);
+        delete pixi;
     }
-    cout << VpetPlayer1[DigiActivoPlayer1]->toString() << endl;
-    QPixmap* pixi = new QPixmap(VpetPlayer1[DigiActivoPlayer1]->getImage());
-    ui->Player1Hp->setMaximum(VpetPlayer1[DigiActivoPlayer1]->getHp());
-    ui->Player1Hp->setValue(VpetPlayer1[DigiActivoPlayer1]->getHp());
-    ui->Player1NombreDigimon->setText(VpetPlayer1[DigiActivoPlayer1]->getName());
-    pixi = new QPixmap(VpetPlayer1[DigiActivoPlayer1]->getImage());
-    ui->Player1Digimon->setPixmap(*pixi);
-    delete pixi;
+}
+
+void MainWindow::on_Player1Skip_clicked()
+{
+    this->CambiarTurno();
+}
+
+void MainWindow::on_Player2Skip_clicked()
+{
+    this->CambiarTurno();
+}
+
+void MainWindow::on_Player1Withdraw_clicked()
+{
+    Ganador Gano;
+    Gano.exec();
+}
+
+void MainWindow::on_Player2Withdraw_clicked()
+{
+    Ganador Gano;
+    Gano.exec();
 }

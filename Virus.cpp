@@ -28,7 +28,7 @@ int Virus::Defend(int Type)const {
 }
 
 int Virus::getType()const {
-    return 3;
+    return Type;
 }
 
 string Virus::toString()const {

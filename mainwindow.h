@@ -23,6 +23,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void CambiarTurno()const;
+    void Iniciar();
 
 private slots:
     void on_Player1Attack_clicked();
@@ -32,6 +33,14 @@ private slots:
     void on_Player2Attack_clicked();
 
     void on_Player1Cambiar_clicked();
+
+    void on_Player1Skip_clicked();
+
+    void on_Player2Skip_clicked();
+
+    void on_Player1Withdraw_clicked();
+
+    void on_Player2Withdraw_clicked();
 
 private:
     Ui::MainWindow *ui;
