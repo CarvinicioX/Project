@@ -402,6 +402,22 @@
      </property>
     </widget>
    </widget>
+   <widget class="QPlainTextEdit" name="History">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>190</y>
+      <width>681</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

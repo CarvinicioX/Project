@@ -10,6 +10,7 @@
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
+#include <sstream>
 
 using namespace std;
 
@@ -84,6 +85,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->Background->setPixmap(*mipi);
     delete mipi;
     ui->Background->lower();
+    ui->History->appendPlainText("Bienvenido.");
+    ui->History->appendPlainText("Empieza Atacando el Jugador 1.");
 }
 
 MainWindow::~MainWindow()
@@ -128,26 +131,44 @@ void MainWindow::CambiarTurno()const {
 
 void MainWindow::on_Player1Attack_clicked()
 {
+    stringstream ss;
+    ss << VpetPlayer2[DigiActivoPlayer2]->getName().toStdString() << " ha Atacado por " << VpetPlayer2[DigiActivoPlayer2]->getAttack() << " Puntos de Vida.";
+    QString Append = QString::fromStdString(ss.str());
+    ui->History->appendPlainText(Append);
     if (ui->Player2Hp->value() < VpetPlayer1[DigiActivoPlayer1]->getAttack()) {
         MainWindow::on_Player2Cambiar_clicked();
     } else {
-        ui->Player2Hp->setValue(ui->Player2Hp->value() - VpetPlayer1[DigiActivoPlayer1]->getAttack());
         this->CambiarTurno();
+        ui->Player2Hp->setValue(ui->Player2Hp->value() - VpetPlayer1[DigiActivoPlayer1]->getAttack());
     }
 }
 
 void MainWindow::on_Player2Cambiar_clicked()
 {
     this->CambiarTurno();
-    if (DigiActivoPlayer2 == 0) {
-        DigiActivoPlayer2 = 1;
-        ui->Player1Wins->setValue(1);
-    } else if (DigiActivoPlayer2 == 1) {
-        DigiActivoPlayer2 = 2;
-        ui->Player1Wins->setValue(2);
-    } else if (DigiActivoPlayer2 == 2) {
-        DigiActivoPlayer2 = 3;
-        ui->Player1Wins->setValue(3);
+    if (DigiActivoPlayer2 < 3) {
+        if (DigiActivoPlayer2 == 0) {
+            DigiActivoPlayer2 = 1;
+            ui->Player1Wins->setValue(1);
+            stringstream ss;
+            ss << VpetPlayer2[DigiActivoPlayer2 - 1]->getName().toStdString() << " ha Cambiado por " << VpetPlayer2[DigiActivoPlayer2]->getName().toStdString() << ".";
+            QString Append = QString::fromStdString(ss.str());
+            ui->History->appendPlainText(Append);
+        } else if (DigiActivoPlayer2 == 1) {
+            DigiActivoPlayer2 = 2;
+            ui->Player1Wins->setValue(2);
+            stringstream ss;
+            ss << VpetPlayer2[DigiActivoPlayer2 - 1]->getName().toStdString() << " ha Cambiado por " << VpetPlayer2[DigiActivoPlayer2]->getName().toStdString() << ".";
+            QString Append = QString::fromStdString(ss.str());
+            ui->History->appendPlainText(Append);
+        } else if (DigiActivoPlayer2 == 2) {
+            DigiActivoPlayer2 = 3;
+            ui->Player1Wins->setValue(3);
+            stringstream ss;
+            ss << VpetPlayer2[DigiActivoPlayer2 - 1]->getName().toStdString() << " no hay mas Digimons.";
+            QString Append = QString::fromStdString(ss.str());
+            ui->History->appendPlainText(Append);
+        }
     }
     if (ui->Player2Hp->value() <= VpetPlayer1[DigiActivoPlayer1]->getAttack()) {
         if (DigiActivoPlayer2 == 3) {
@@ -175,26 +196,44 @@ void MainWindow::on_Player2Cambiar_clicked()
 
 void MainWindow::on_Player2Attack_clicked()
 {
+    stringstream ss;
+    ss << VpetPlayer1[DigiActivoPlayer1]->getName().toStdString() << " ha Atacado por " << VpetPlayer1[DigiActivoPlayer1]->getAttack() << " Puntos de Vida.";
+    QString Append = QString::fromStdString(ss.str());
+    ui->History->appendPlainText(Append);
     if (ui->Player1Hp->value() <= VpetPlayer2[DigiActivoPlayer2]->getAttack()) {
         MainWindow::on_Player1Cambiar_clicked();
     } else {
-        ui->Player1Hp->setValue(ui->Player1Hp->value() - VpetPlayer2[DigiActivoPlayer2]->getAttack());
         this->CambiarTurno();
+        ui->Player1Hp->setValue(ui->Player1Hp->value() - VpetPlayer2[DigiActivoPlayer2]->getAttack());
     }
 }
 
 void MainWindow::on_Player1Cambiar_clicked()
 {
     this->CambiarTurno();
-    if (DigiActivoPlayer1 == 0) {
-        DigiActivoPlayer1 = 1;
-        ui->Player2Wins->setValue(1);
-    } else if (DigiActivoPlayer1 == 1) {
-        DigiActivoPlayer1 = 2;
-        ui->Player2Wins->setValue(2);
-    } else if (DigiActivoPlayer1 == 2) {
-        DigiActivoPlayer1 = 3;
-        ui->Player2Wins->setValue(3);
+    if (DigiActivoPlayer1 < 3) {
+        if (DigiActivoPlayer1 == 0) {
+            DigiActivoPlayer1 = 1;
+            ui->Player2Wins->setValue(1);
+            stringstream ss;
+            ss << VpetPlayer1[DigiActivoPlayer1 - 1]->getName().toStdString() << " ha Cambiado por " << VpetPlayer1[DigiActivoPlayer1]->getName().toStdString() << ".";
+            QString Append = QString::fromStdString(ss.str());
+            ui->History->appendPlainText(Append);
+        } else if (DigiActivoPlayer1 == 1) {
+            DigiActivoPlayer1 = 2;
+            ui->Player2Wins->setValue(2);
+            stringstream ss;
+            ss << VpetPlayer1[DigiActivoPlayer1 - 1]->getName().toStdString() << " ha Cambiado por " << VpetPlayer1[DigiActivoPlayer1]->getName().toStdString() << ".";
+            QString Append = QString::fromStdString(ss.str());
+            ui->History->appendPlainText(Append);
+        } else if (DigiActivoPlayer1 == 2) {
+            DigiActivoPlayer1 = 3;
+            ui->Player2Wins->setValue(3);
+            stringstream ss;
+            ss << VpetPlayer1[DigiActivoPlayer1 - 1]->getName().toStdString() << " no hay mas Digimons.";
+            QString Append = QString::fromStdString(ss.str());
+            ui->History->appendPlainText(Append);
+        }
     }
     if (ui->Player1Hp->value() <= VpetPlayer2[DigiActivoPlayer2]->getAttack()) {
         if (DigiActivoPlayer1 == 3) {
@@ -223,21 +262,37 @@ void MainWindow::on_Player1Cambiar_clicked()
 void MainWindow::on_Player1Skip_clicked()
 {
     this->CambiarTurno();
+    stringstream ss;
+    ss << VpetPlayer1[DigiActivoPlayer1]->getName().toStdString() << " ha Skipeado Turno.";
+    QString Append = QString::fromStdString(ss.str());
+    ui->History->appendPlainText(Append);
 }
 
 void MainWindow::on_Player2Skip_clicked()
 {
     this->CambiarTurno();
+    stringstream ss;
+    ss << VpetPlayer2[DigiActivoPlayer2]->getName().toStdString() << " ha Skipeado Turno.";
+    QString Append = QString::fromStdString(ss.str());
+    ui->History->appendPlainText(Append);
 }
 
 void MainWindow::on_Player1Withdraw_clicked()
 {
+    stringstream ss;
+    ss << DigiDestinados[0].getName().toStdString() << " se ha Rendido.";
+    QString Append = QString::fromStdString(ss.str());
+    ui->History->appendPlainText(Append);
     Ganador Gano;
     Gano.exec();
 }
 
 void MainWindow::on_Player2Withdraw_clicked()
 {
+    stringstream ss;
+    ss << DigiDestinados[1].getName().toStdString() << " se ha Rendido.";
+    QString Append = QString::fromStdString(ss.str());
+    ui->History->appendPlainText(Append);
     Ganador Gano;
     Gano.exec();
 }
