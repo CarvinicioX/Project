@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     Virus.cpp \
     DigiDestined.cpp \
     Vaccine.cpp \
-    ChooseDigiDestined.cpp
+    ChooseDigiDestined.cpp \
+    Ganador.cpp
 
 HEADERS  += mainwindow.h \
     Digimon.h \
@@ -27,10 +28,12 @@ HEADERS  += mainwindow.h \
     Virus.h \
     DigiDestined.h \
     Vaccine.h \
-    ChooseDigiDestined.h
+    ChooseDigiDestined.h \
+    Ganador.h
 
 FORMS    += mainwindow.ui \
-    ChooseDigiDestined.ui
+    ChooseDigiDestined.ui \
+    Ganador.ui
 
 RESOURCES += \
     digimon.qrc

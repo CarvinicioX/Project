@@ -2,15 +2,16 @@
 #define DATA_H
 
 #include "Digimon.h"
-#include "string"
+#include "QString"
 
-using std::string;
+using namespace std;
 
 class Data: public Digimon {
     int Type;
 public:
-    Data(string, int, int, QString);
-    ~Data();
+    Data(QString, int, int, QString);
+    Data(const Digimon&);
+    virtual ~Data();
     int Defend(int)const;
     int getType()const;
     virtual string toString()const;

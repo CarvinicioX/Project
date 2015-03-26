@@ -5,24 +5,21 @@
 #include "Vaccine.h"
 #include "Data.h"
 #include "Virus.h"
-#include <string>
+#include <QString>
 #include <vector>
 
-using std::string;
-using std::vector;
+using namespace std;
 
 class DigiDestined {
-    string Name;
+    QString Name;
     int Winns;
-    vector<Digimon*> Vpet;
     QString Image;
 public:
-    DigiDestined(string, QString);
+    DigiDestined(QString, QString);
     ~DigiDestined();
     void setWinns();
-    void setDigimon(Digimon*);
     QString getImage()const;
-    string getName()const;
+    QString getName()const;
     int getWinns()const;
     string toString()const;
 };

@@ -2,15 +2,16 @@
 #define VACUNA_H
 
 #include "Digimon.h"
-#include "string"
+#include "QString"
 
-using std::string;
+using namespace std;
 
 class Vaccine:public Digimon {
     int Type;
 public:
-    Vaccine(string, int, int, QString);
-    ~Vaccine();
+    Vaccine(QString, int, int, QString);
+    Vaccine(const Digimon&);
+    virtual ~Vaccine();
     int Defend(int)const;
     virtual string toString()const;
     virtual int getType()const;

@@ -56,7 +56,7 @@
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>204</width>
+       <width>206</width>
        <height>167</height>
       </rect>
      </property>
@@ -64,18 +64,18 @@
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
-         <widget class="QLabel" name="Player1Mugshot">
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="digimon.qrc">:/new/DigiElegidos/Digimon/Davis.png</pixmap>
-          </property>
-         </widget>
-        </item>
-        <item>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
+           <widget class="QLabel" name="Player1Mugshot">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="digimon.qrc">:/new/DigiElegidos/Digimon/Davis.png</pixmap>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
            <widget class="QLabel" name="label">
             <property name="text">
              <string>Wins</string>
@@ -83,7 +83,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QProgressBar" name="PLayer1Wins">
+           <widget class="QProgressBar" name="Player1Wins">
             <property name="maximum">
              <number>5</number>
             </property>
@@ -98,10 +98,10 @@
       </item>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_4">
-        <item>
+        <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
          <widget class="QLabel" name="Player1Name">
           <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
+           <enum>QFrame::NoFrame</enum>
           </property>
           <property name="frameShadow">
            <enum>QFrame::Sunken</enum>
@@ -111,14 +111,14 @@
           </property>
          </widget>
         </item>
-        <item>
-         <widget class="QLabel" name="Player1NombreDigimonPlayer1">
+        <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+         <widget class="QLabel" name="Player1NombreDigimon">
           <property name="text">
            <string>Veemon</string>
           </property>
          </widget>
         </item>
-        <item>
+        <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
          <widget class="QLabel" name="Player1Digimon">
           <property name="text">
            <string/>
@@ -166,21 +166,21 @@
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_8">
-        <item>
+        <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
          <widget class="QLabel" name="Player2Name">
           <property name="text">
            <string>Yolei</string>
           </property>
          </widget>
         </item>
-        <item>
+        <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
          <widget class="QLabel" name="Player2NombreDigimon">
           <property name="text">
            <string>Hawkmon</string>
           </property>
          </widget>
         </item>
-        <item>
+        <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
          <widget class="QLabel" name="Player2Digimon">
           <property name="text">
            <string/>
@@ -262,6 +262,9 @@
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
          <widget class="QPushButton" name="Player2Attack">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>Attack</string>
           </property>
@@ -269,6 +272,9 @@
         </item>
         <item>
          <widget class="QPushButton" name="Player2Defend">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>Defend</string>
           </property>
@@ -279,7 +285,20 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
+         <widget class="QPushButton" name="Player2Cambiar">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Cambiar</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QPushButton" name="Player2Skip">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>Skip</string>
           </property>
@@ -287,8 +306,11 @@
         </item>
         <item>
          <widget class="QPushButton" name="Player2Withdraw">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
-           <string>Withdraw Round</string>
+           <string>Withdraw</string>
           </property>
          </widget>
         </item>
@@ -306,7 +328,7 @@
       </rect>
      </property>
      <property name="value">
-      <number>24</number>
+      <number>100</number>
      </property>
     </widget>
    </widget>
@@ -359,6 +381,13 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_6">
         <item>
+         <widget class="QPushButton" name="Player1Cambiar">
+          <property name="text">
+           <string>Cambiar</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QPushButton" name="Player1Skip">
           <property name="text">
            <string>Skip</string>
@@ -368,7 +397,7 @@
         <item>
          <widget class="QPushButton" name="Player1Withdraw">
           <property name="text">
-           <string>Withdraw Round</string>
+           <string>Withdraw</string>
           </property>
          </widget>
         </item>
@@ -386,7 +415,7 @@
       </rect>
      </property>
      <property name="value">
-      <number>24</number>
+      <number>100</number>
      </property>
     </widget>
    </widget>

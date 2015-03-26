@@ -12,13 +12,15 @@ class ChooseDigiDestined;
 class ChooseDigiDestined : public QDialog
 {
     Q_OBJECT
-    int Player1;
-    int Player2;
     vector<DigiDestined> DigiDestinados;
+    int Player1, Player2;
+protected:
 public:
-    explicit ChooseDigiDestined(int&, int&, vector<DigiDestined>, QWidget *parent = 0);
+    Ui::ChooseDigiDestined *ui;
+    explicit ChooseDigiDestined(vector<DigiDestined>, QWidget *parent = 0);
     ~ChooseDigiDestined();
-
+    int retornaIndicePlayer1()const;
+    int retornaIndicePlayer2()const;
 private slots:
     void on_Player1SelectionComboBox_currentIndexChanged(int index);
 
@@ -28,8 +30,6 @@ private slots:
 
     void on_buttonBox_accepted();
 
-private:
-    Ui::ChooseDigiDestined *ui;
 };
 
 #endif // CHOOSEDIGIDESTINED_H

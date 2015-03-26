@@ -1,15 +1,16 @@
 #include "ChooseDigiDestined.h"
 #include "ui_ChooseDigiDestined.h"
 #include <QStringList>
+#include <iostream>
 
-ChooseDigiDestined::ChooseDigiDestined(int& Player1, int& Player2, vector<DigiDestined> DigiDestinados, QWidget *parent) :
+using namespace std;
+
+ChooseDigiDestined::ChooseDigiDestined(vector<DigiDestined> DigiDestinados, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ChooseDigiDestined)
 {
-    this->Player1 = Player1;
-    this->Player2 = Player2;
-    this->DigiDestinados = DigiDestinados;
     ui->setupUi(this);
+    this->DigiDestinados = DigiDestinados;
     QString Tamer1, Tamer2, Tamer3, Tamer4, Tamer5, Tamer6;
     Tamer1 = "Cody";
     Tamer2 = "Davis";
@@ -29,8 +30,17 @@ ChooseDigiDestined::~ChooseDigiDestined()
     delete ui;
 }
 
+int ChooseDigiDestined::retornaIndicePlayer1()const {
+    return Player1;
+}
+
+int ChooseDigiDestined::retornaIndicePlayer2()const {
+    return Player2;
+}
+
 void ChooseDigiDestined::on_Player1SelectionComboBox_currentIndexChanged(int index)
 {
+    cout << index << endl;
     if (ui->Player1SelectionComboBox->currentIndex() == ui->Player2SelectionComboBox->currentIndex()) {
         if (ui->Player1SelectionComboBox->currentIndex() == DigiDestinados.size() - 1) {
             ui->Player2SelectionComboBox->setCurrentIndex(ui->Player1SelectionComboBox->currentIndex() - 1);
@@ -54,7 +64,7 @@ void ChooseDigiDestined::on_Player1SelectionComboBox_currentIndexChanged(int ind
     } else if (ui->Player1SelectionComboBox->currentIndex() == 4) {
         mypix = new QPixmap(":/new/DigiElegidos/Digimon/TdotKdot.png");
         ui->Player1Name->setText("T.K.");
-    } else if (ui->Player1SelectionComboBox->currentIndex() == 5) {
+    } else {
         mypix = new QPixmap(":/new/DigiElegidos/Digimon/Yolei.png");
         ui->Player1Name->setText("Yolei");
     }
@@ -64,6 +74,7 @@ void ChooseDigiDestined::on_Player1SelectionComboBox_currentIndexChanged(int ind
 
 void ChooseDigiDestined::on_Player2SelectionComboBox_currentIndexChanged(int index)
 {
+    cout << index << endl;
     if (ui->Player2SelectionComboBox->currentIndex() == ui->Player1SelectionComboBox->currentIndex()) {
         if (ui->Player2SelectionComboBox->currentIndex() == DigiDestinados.size() - 1) {
             ui->Player1SelectionComboBox->setCurrentIndex(ui->Player2SelectionComboBox->currentIndex() - 1);
@@ -87,7 +98,7 @@ void ChooseDigiDestined::on_Player2SelectionComboBox_currentIndexChanged(int ind
     } else if (ui->Player2SelectionComboBox->currentIndex() == 4) {
         mypix = new QPixmap(":/new/DigiElegidos/Digimon/TdotKdot.png");
         ui->Player2Name->setText("T.K.");
-    } else if (ui->Player2SelectionComboBox->currentIndex() == 5) {
+    } else {
         mypix = new QPixmap(":/new/DigiElegidos/Digimon/Yolei.png");
         ui->Player2Name->setText("Yolei");
     }
@@ -104,10 +115,6 @@ void ChooseDigiDestined::on_buttonBox_accepted()
 {
     Player1 = ui->Player1SelectionComboBox->currentIndex();
     Player2 = ui->Player2SelectionComboBox->currentIndex();
-    QString ss;
-    ss.number(ui->Player1SelectionComboBox->currentIndex());
-    ui->Player1Name->setText(ss);
-    ss.number(ui->Player2SelectionComboBox->currentIndex());
-    ui->Player2Name->setText(ss);
+    cout << "Exito" << endl;
     this->close();
 }

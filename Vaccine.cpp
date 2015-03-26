@@ -1,13 +1,14 @@
 #include "Vaccine.h"
 #include "Digimon.h"
-#include "string"
+#include "QString"
 #include "sstream"
 
-using std::string;
-using std::stringstream;
+using namespace std;
 
-Vaccine::Vaccine(string Name, int Hp, int Attack, QString image):Digimon(Name, Hp, Attack, image){
-    this->Type = 1;
+Vaccine::Vaccine(QString Name, int Hp, int Attack, QString image):Digimon(Name, Hp, Attack, image),Type(1){
+}
+
+Vaccine::Vaccine(const Digimon& rhs):Digimon(rhs.getName(), rhs.getHp(), rhs.getAttack(), rhs.getImage()),Type(1) {
 }
 
 Vaccine::~Vaccine()

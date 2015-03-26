@@ -1,22 +1,25 @@
 #ifndef DIGIMON_H
 #define DIGIMON_H
 
-#include "string"
 #include "QString"
 
-using std::string;
+using namespace std;
 
 class Digimon {
 protected:
-    string Name;
+    QString Name;
     int Hp;
     int Attack;
     QString image;
+    bool Defense;
 public:
-    Digimon(string, int, int, QString);
-    ~Digimon();
+    Digimon(QString, int, int, QString);
+    Digimon(const Digimon&);
+    virtual ~Digimon();
     int getHp()const;
-    string getName()const;
+    QString getName()const;
+    int getAttack()const;
+    QString getImage()const;
     virtual string toString()const;
     virtual int getType()const=0;
 };

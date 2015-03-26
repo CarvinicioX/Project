@@ -2,15 +2,16 @@
 #define VIRUS_H
 
 #include "Digimon.h"
-#include "string"
+#include "QString"
 
-using std::string;
+using namespace std;
 
 class Virus:public Digimon {
     int Type;
 public:
-    Virus(string, int, int, QString);
-    ~Virus();
+    Virus(QString, int, int, QString);
+    Virus(const Digimon&);
+    virtual ~Virus();
     int Defend(int)const;
     int getType()const;
     virtual string toString()const;

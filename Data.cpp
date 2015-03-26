@@ -1,13 +1,14 @@
 #include "Data.h"
 #include "Digimon.h"
-#include "string"
+#include "QString"
 #include "sstream"
 
-using std::string;
-using std::stringstream;
+using namespace std;
 
-Data::Data(string Name, int Hp, int Attack, QString image):Digimon(Name, Hp, Attack, image){
-    this->Type = 2;
+Data::Data(QString Name, int Hp, int Attack, QString image):Digimon(Name, Hp, Attack, image),Type(2){
+}
+
+Data::Data(const Digimon& rhs):Digimon(rhs.getName(), rhs.getHp(), rhs.getAttack(), rhs.getImage()),Type(2) {
 }
 
 Data::~Data()
@@ -15,7 +16,7 @@ Data::~Data()
 
 }
 
-int Data::Defend(int)const {
+int Data::Defend(int Type)const {
     if (Type == 1) {
         return Attack;
     } else if (Type == 2) {
@@ -27,7 +28,7 @@ int Data::Defend(int)const {
 }
 
 int Data::getType()const {
-    return 0;
+    return Type;
 }
 
 string Data::toString()const {

@@ -1,13 +1,14 @@
 #include "Virus.h"
 #include "Digimon.h"
-#include "string"
+#include "QString"
 #include "sstream"
 
-using std::string;
-using std::stringstream;
+using namespace std;
 
-Virus::Virus(string Name, int Hp, int Attack, QString image):Digimon(Name, Hp, Attack, image){
-    this->Type = 1;
+Virus::Virus(QString Name, int Hp, int Attack, QString image):Digimon(Name, Hp, Attack, image), Type(3){
+}
+
+Virus::Virus(const Digimon& rhs):Digimon(rhs.getName(), rhs.getHp(), rhs.getAttack(), rhs.getImage()),Type(3) {
 }
 
 Virus::~Virus()
